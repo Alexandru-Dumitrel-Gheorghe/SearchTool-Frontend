@@ -1,0 +1,32 @@
+/* frontend/src/pages/Home.module.css */
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* "Hero" – un banner de prezentare */
+.heroSection {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.heroSection h1 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.heroSection p {
+  margin: 0;
+  color: #555;
+}
+
+.sectionBox {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}

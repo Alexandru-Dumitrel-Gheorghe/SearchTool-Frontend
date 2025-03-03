@@ -1,0 +1,48 @@
+/* frontend/src/components/PdfUpload.module.css */
+.uploadContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.uploadFields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fieldGroup label {
+  font-weight: 600;
+}
+
+.inputField {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.uploadButton {
+  align-self: start; /* aliniere la stânga */
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.uploadButton:hover {
+  background-color: #218838;
+}
+
+.info {
+  color: green;
+  font-weight: 600;
+}

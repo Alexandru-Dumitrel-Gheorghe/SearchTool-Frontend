@@ -1,0 +1,21 @@
+/* frontend/src/App.module.css */
+.appContainer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f0f2f5 0%, #ffffff 100%);
+  margin: 0;
+  padding: 0;
+}
+
+.mainContent {
+  max-width: 1200px;
+  margin: 0 auto; /* Centrare */
+  padding: 2rem;
+}
+
+/* Responsive: pe ecrane foarte mici, facem padding mai mic */
+@media (max-width: 600px) {
+  .mainContent {
+    padding: 1rem;
+  }
+}
