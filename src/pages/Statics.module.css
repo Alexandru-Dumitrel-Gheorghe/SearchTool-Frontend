@@ -1,0 +1,76 @@
+/* src/pages/Statics.module.css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #182848;
+    margin-bottom: 1rem;
+  }
+  
+  .statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #4b6cb7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon {
+    font-size: 2rem;
+    color: #4b6cb7;
+    margin-right: 0.8rem;
+  }
+  
+  .cardInfo h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: #4b6cb7;
+  }
+  
+  .cardInfo p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .chartContainer {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #4b6cb7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chartContainer h3 {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    color: #4b6cb7;
+    font-weight: 700;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+    .cardInfo p {
+      font-size: 1.3rem;
+    }
+  }
+  
