@@ -1,12 +1,9 @@
-// frontend/src/components/ProduktListe.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import classes from './ProduktListe.module.css';
 
 function ProduktListe() {
   const [produkte, setProdukte] = useState([]);
-  
-  // Set baseURL from .env; fallback to localhost if not defined
   const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
   useEffect(() => {
@@ -33,7 +30,7 @@ function ProduktListe() {
                 target="_blank"
                 rel="noreferrer"
               >
-                PDF
+                PDF ansehen
               </a>
             )}
           </li>

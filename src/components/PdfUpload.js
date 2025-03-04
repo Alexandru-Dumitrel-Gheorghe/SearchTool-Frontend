@@ -1,4 +1,3 @@
-// frontend/src/components/PdfUpload.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import classes from './PdfUpload.module.css';
@@ -6,10 +5,9 @@ import classes from './PdfUpload.module.css';
 function PdfUpload() {
   const [artikelnummer, setArtikelnummer] = useState('');
   const [beschreibung, setBeschreibung] = useState('');
-  const [pdfDatei, setPdfDatei] = useState(null);
+  const [file, setFile] = useState(null);
   const [meldung, setMeldung] = useState('');
 
-  // La fel, preluăm URL-ul
   const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
   const handleSubmit = async (e) => {
@@ -18,8 +16,8 @@ function PdfUpload() {
       const formData = new FormData();
       formData.append('artikelnummer', artikelnummer);
       formData.append('beschreibung', beschreibung);
-      if (pdfDatei) {
-        formData.append('pdfDatei', pdfDatei);
+      if (file) {
+        formData.append('pdfDatei', file);
       }
 
       const response = await axios.post(
@@ -31,10 +29,10 @@ function PdfUpload() {
       setMeldung(response.data.message);
       setArtikelnummer('');
       setBeschreibung('');
-      setPdfDatei(null);
+      setFile(null);
     } catch (error) {
       console.error(error);
-      setMeldung('Fehler beim Hochladen des PDFs.');
+      setMeldung('Fehler beim Hochladen der Datei.');
     }
   };
 
@@ -65,13 +63,12 @@ function PdfUpload() {
         </div>
 
         <div className={classes.fieldGroup}>
-          <label htmlFor="pdfDatei">PDF-Datei:</label>
+          <label htmlFor="pdfDatei">Datei hochladen:</label>
           <input
             className={classes.inputField}
             id="pdfDatei"
             type="file"
-            accept="application/pdf"
-            onChange={(e) => setPdfDatei(e.target.files[0])}
+            onChange={(e) => setFile(e.target.files[0])}
           />
         </div>
 

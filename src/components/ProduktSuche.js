@@ -1,4 +1,3 @@
-// frontend/src/components/ProduktSuche.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import classes from './ProduktSuche.module.css';
@@ -17,6 +16,7 @@ function ProduktSuche() {
       setProdukt(response.data);
       setMeldung('');
     } catch (error) {
+      console.error(error);
       setProdukt(null);
       setMeldung('Produkt nicht gefunden oder Fehler aufgetreten.');
     }
@@ -34,7 +34,9 @@ function ProduktSuche() {
           onChange={(e) => setArtikelnummer(e.target.value)}
           placeholder="Artikelnummer eingeben"
         />
-        <button className={classes.searchButton} onClick={handleSuche}>Suchen</button>
+        <button className={classes.searchButton} onClick={handleSuche}>
+          Suchen
+        </button>
       </div>
 
       {produkt && (
@@ -43,7 +45,7 @@ function ProduktSuche() {
           <p><strong>Beschreibung:</strong> {produkt.beschreibung}</p>
           {produkt.pdfPfad && (
             <a
-              href={`${baseURL}/${produkt.pdfPfad}`}
+              href={produkt.pdfPfad}
               target="_blank"
               rel="noreferrer"
             >
