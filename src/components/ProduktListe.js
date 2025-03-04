@@ -5,14 +5,13 @@ import classes from './ProduktListe.module.css';
 
 function ProduktListe() {
   const [produkte, setProdukte] = useState([]);
-
-  // Construiești un baseURL din variabilă de mediu
+  
+  // Set baseURL from .env; fallback to localhost if not defined
   const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
   useEffect(() => {
     const ladeProdukte = async () => {
       try {
-        // Folosești baseURL + /api/produkte
         const response = await axios.get(`${baseURL}/api/produkte`);
         setProdukte(response.data);
       } catch (error) {
@@ -30,7 +29,7 @@ function ProduktListe() {
             <strong>{prod.artikelnummer}</strong> – {prod.beschreibung}{' '}
             {prod.pdfPfad && (
               <a
-                href={`${baseURL}/${prod.pdfPfad}`}
+                href={prod.pdfPfad}
                 target="_blank"
                 rel="noreferrer"
               >
