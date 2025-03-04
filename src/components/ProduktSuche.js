@@ -1,6 +1,8 @@
+// src/components/ProduktSuche.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import classes from './ProduktSuche.module.css';
+import { FaSearch } from 'react-icons/fa'; // icon pentru buton
 
 function ProduktSuche() {
   const [artikelnummer, setArtikelnummer] = useState('');
@@ -18,38 +20,34 @@ function ProduktSuche() {
     } catch (error) {
       console.error(error);
       setProdukt(null);
-      setMeldung('Produkt nicht gefunden oder Fehler aufgetreten.');
+      setMeldung('Product not found or an error occurred.');
     }
   };
 
   return (
     <div className={classes.sucheContainer}>
       <div className={classes.formRow}>
-        <label htmlFor="artikelnummer">Artikelnummer:</label>
+        <label htmlFor="artikelnummer">Product Number:</label>
         <input
           className={classes.inputField}
           id="artikelnummer"
           type="text"
           value={artikelnummer}
           onChange={(e) => setArtikelnummer(e.target.value)}
-          placeholder="Artikelnummer eingeben"
+          placeholder="Enter product number"
         />
         <button className={classes.searchButton} onClick={handleSuche}>
-          Suchen
+          <FaSearch className={classes.searchIcon} /> Search
         </button>
       </div>
 
       {produkt && (
         <div className={classes.result}>
-          <p><strong>Artikelnummer:</strong> {produkt.artikelnummer}</p>
-          <p><strong>Beschreibung:</strong> {produkt.beschreibung}</p>
+          <p><strong>Product Number:</strong> {produkt.artikelnummer}</p>
+          <p><strong>Description:</strong> {produkt.beschreibung}</p>
           {produkt.pdfPfad && (
-            <a
-              href={produkt.pdfPfad}
-              target="_blank"
-              rel="noreferrer"
-            >
-              PDF ansehen
+            <a href={produkt.pdfPfad} target="_blank" rel="noreferrer">
+              View PDF
             </a>
           )}
         </div>

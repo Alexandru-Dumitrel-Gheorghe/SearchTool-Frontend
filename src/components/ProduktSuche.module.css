@@ -1,50 +1,82 @@
-/* frontend/src/components/ProduktSuche.module.css */
+/* src/components/ProduktSuche.module.css */
 .sucheContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  margin-bottom: 0.5rem;
+  border-left: 4px solid #4b6cb7;
 }
 
 .formRow {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .formRow label {
   font-weight: 600;
+  color: #333;
 }
 
 .inputField {
-  flex: 1; /* se întinde pe cât spațiu e disponibil */
-  padding: 0.5rem;
+  flex: 1;
+  min-width: 180px;
+  padding: 0.3rem; /* Mai mic */
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 0.9rem; /* scădem un pic */
 }
 
 .searchButton {
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #007bff;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.6rem; /* Mai mic */
+  background-color: #4b6cb7;
   color: #fff;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
 }
 
 .searchButton:hover {
-  background-color: #0056b3;
+  background-color: #3a539b;
+}
+
+.searchIcon {
+  font-size: 1rem; /* icon mai mic */
 }
 
 .result {
-  margin-top: 1rem;
-  background-color: #f8f9fa;
-  padding: 1rem;
+  background: #f9f9f9;
+  padding: 0.5rem;
   border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  margin-top: 0.5rem;
+}
+
+.result p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.result a {
+  color: #4b6cb7;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.result a:hover {
+  color: #182848;
 }
 
 .warnung {
-  color: red;
-  font-weight: 600;
+  color: #d9534f;
+  margin-top: 0.5rem;
 }

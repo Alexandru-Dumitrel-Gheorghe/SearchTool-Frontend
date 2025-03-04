@@ -1,0 +1,31 @@
+/* src/components/StatsRow.module.css */
+.statsRow {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; /* pentru responsive */
+  }
+  
+  .statCard {
+    flex: 1;
+    min-width: 150px;
+    background: #fff;
+    border-left: 4px solid #4b6cb7;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .statCard h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    color: #4b6cb7;
+    font-weight: 700;
+  }
+  
+  .statCard p {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 600;
+  }
+  

@@ -1,32 +1,83 @@
-/* frontend/src/pages/Home.module.css */
+/* src/pages/Home.module.css */
+
+/* 
+   Layout principal: 3 rânduri 
+   - row1: Stats + Chart
+   - row2: Advanced Search
+   - row3: (stânga: Search & List), dreapta: Upload
+*/
 .homeContainer {
+  display: grid;
+  grid-template-rows: auto auto auto; 
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* =======================
+   ROW 1: Stats + Chart
+   ======================= */
+.row1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* =======================
+   ROW 2: Advanced Search (full width)
+   ======================= */
+.row2 {
+  /* un singur element -> AdvancedSearch */
+}
+
+/* =======================
+   ROW 3: Două coloane -> stânga (Search & List), dreapta (Upload)
+   ======================= */
+.row3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 1rem;
+}
+
+/* Coloana stângă (Search + List) */
+.leftColumn {
+  display: flex;
+  flex-direction: column; /* vertical: Search sus, List jos */
+  gap: 1rem; /* spațiu între SearchSection și ListSection */
+}
+
+.searchSection {
+  /* card styling e în ProduktSuche.module.css */
+}
+
+.listSection {
+  /* card styling e în ProduktListe.module.css */
+  margin-top: 0.5rem; /* spațiu suplimentar sub Search */
+}
+
+/* Coloana dreaptă (Upload PDF) */
+.rightColumn {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
-/* "Hero" – un banner de prezentare */
-.heroSection {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.heroSection h1 {
+/* Titlurile secțiunilor */
+.leftColumn h2,
+.rightColumn h2 {
   margin-bottom: 0.5rem;
-  color: #333;
+  font-size: 1.2rem;
+  color: #4b6cb7;
+  font-weight: 700;
 }
 
-.heroSection p {
-  margin: 0;
-  color: #555;
-}
-
-.sectionBox {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+/* MEDIA QUERIES - ecrane sub 768px: 1 coloană (stânga + dreapta se suprapun vertical) */
+@media (max-width: 768px) {
+  .row1 {
+    grid-template-columns: 1fr;
+  }
+  .row3 {
+    grid-template-columns: 1fr;
+  }
 }

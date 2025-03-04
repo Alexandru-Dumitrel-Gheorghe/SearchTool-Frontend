@@ -1,0 +1,72 @@
+/* src/components/AdvancedSearch.module.css */
+.advancedSearchContainer {
+    background: #fff;
+    border-left: 4px solid #4b6cb7;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    margin-bottom: 1rem;
+  }
+  
+  .advancedSearchContainer h3 {
+    margin: 0 0 1rem 0;
+    color: #4b6cb7;
+    font-size: 1.1rem;
+  }
+  
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .filters input,
+  .filters select {
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  
+  .filters button {
+    background-color: #4b6cb7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .filters button:hover {
+    background-color: #3a539b;
+  }
+  
+  .results {
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    padding: 1rem;
+  }
+  
+  .results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .results li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .results li a {
+    margin-left: 1rem;
+    color: #4b6cb7;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .pagination {
+    margin-top: 1rem;
+  }
+  

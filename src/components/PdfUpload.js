@@ -1,12 +1,13 @@
+// src/components/PdfUpload.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify'; // Importăm toast
 import classes from './PdfUpload.module.css';
 
 function PdfUpload() {
   const [artikelnummer, setArtikelnummer] = useState('');
   const [beschreibung, setBeschreibung] = useState('');
   const [file, setFile] = useState(null);
-  const [meldung, setMeldung] = useState('');
 
   const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
@@ -26,13 +27,14 @@ function PdfUpload() {
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
 
-      setMeldung(response.data.message);
+      // Afișăm mesajul de succes cu Toastify
+      toast.success(response.data.message || 'File uploaded successfully!');
       setArtikelnummer('');
       setBeschreibung('');
       setFile(null);
     } catch (error) {
       console.error(error);
-      setMeldung('Fehler beim Hochladen der Datei.');
+      toast.error('Error uploading file.');
     }
   };
 
@@ -40,7 +42,7 @@ function PdfUpload() {
     <div className={classes.uploadContainer}>
       <form onSubmit={handleSubmit} className={classes.uploadFields}>
         <div className={classes.fieldGroup}>
-          <label htmlFor="artikelnummer">Artikelnummer:</label>
+          <label htmlFor="artikelnummer">Product Number:</label>
           <input
             className={classes.inputField}
             id="artikelnummer"
@@ -52,7 +54,7 @@ function PdfUpload() {
         </div>
 
         <div className={classes.fieldGroup}>
-          <label htmlFor="beschreibung">Beschreibung:</label>
+          <label htmlFor="beschreibung">Description:</label>
           <input
             className={classes.inputField}
             id="beschreibung"
@@ -63,7 +65,7 @@ function PdfUpload() {
         </div>
 
         <div className={classes.fieldGroup}>
-          <label htmlFor="pdfDatei">Datei hochladen:</label>
+          <label htmlFor="pdfDatei">Upload File:</label>
           <input
             className={classes.inputField}
             id="pdfDatei"
@@ -73,11 +75,9 @@ function PdfUpload() {
         </div>
 
         <button type="submit" className={classes.uploadButton}>
-          Hochladen
+          Upload
         </button>
       </form>
-
-      {meldung && <p className={classes.info}>{meldung}</p>}
     </div>
   );
 }

@@ -1,21 +1,32 @@
-/* frontend/src/App.module.css */
+/* src/App.module.css */
 .appContainer {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
-  background: linear-gradient(180deg, #f0f2f5 0%, #ffffff 100%);
+  font-family: 'Roboto', sans-serif;
+  color: #333;
   margin: 0;
   padding: 0;
 }
 
-.mainContent {
-  max-width: 1200px;
-  margin: 0 auto; /* Centrare */
-  padding: 2rem;
+.layout {
+  display: flex;
+  min-height: 100vh;
 }
 
-/* Responsive: pe ecrane foarte mici, facem padding mai mic */
-@media (max-width: 600px) {
-  .mainContent {
-    padding: 1rem;
-  }
+/* Sidebar-ul rămâne fix la stânga */
+.layout > *:first-child {
+  flex-shrink: 0;
+}
+
+.mainSection {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Conținutul principal */
+.mainContent {
+  flex: 1;
+  overflow: auto;
+  background-color: #f8f9fd; /* gri foarte deschis */
+  padding: 1rem; /* scade la 1rem pentru un aspect mai compact */
+  box-sizing: border-box;
 }

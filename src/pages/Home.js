@@ -1,37 +1,45 @@
-// frontend/src/pages/Home.js
+// src/pages/Home.js
 import React from 'react';
 import classes from './Home.module.css';
 
+import StatsRow from '../components/StatsRow';
+import ProductsChart from '../components/ProductsChart';
+import AdvancedSearch from '../components/AdvancedSearch';
 import ProduktSuche from '../components/ProduktSuche';
-import PdfUpload from '../components/PdfUpload';
 import ProduktListe from '../components/ProduktListe';
+import PdfUpload from '../components/PdfUpload';
 
 function Home() {
   return (
     <div className={classes.homeContainer}>
-      {/* Secțiunea principală (header text) */}
-      <section className={classes.heroSection}>
-        <h1>Willkommen zum Produkt-Portal</h1>
-        <p>Verwalte deine Produkte, lade Arbeitsanleitungen hoch und finde alles schnell!</p>
-      </section>
+      {/* Row 1: Stats (stânga) + Chart (dreapta) */}
+      <div className={classes.row1}>
+        <StatsRow />
+        <ProductsChart />
+      </div>
 
-      {/* Secțiunea de căutare */}
-      <section className={classes.sectionBox}>
-        <h2>Produkt nach Artikelnummer suchen</h2>
-        <ProduktSuche />
-      </section>
+      {/* Row 2: Advanced Search (full width) */}
+      <div className={classes.row2}>
+        <AdvancedSearch />
+      </div>
 
-      {/* Secțiunea de upload */}
-      <section className={classes.sectionBox}>
-        <h2>Arbeitsanleitung (PDF) hochladen</h2>
-        <PdfUpload />
-      </section>
+      {/* Row 3: Două coloane -> stânga (Search + List), dreapta (Upload) */}
+      <div className={classes.row3}>
+        <div className={classes.leftColumn}>
+          <h2>Search & List</h2>
+          <div className={classes.searchSection}>
+            <ProduktSuche />
+          </div>
+          <div className={classes.listSection}>
+            <ProduktListe />
+          </div>
+        </div>
 
-      {/* Secțiunea listă */}
-      <section className={classes.sectionBox}>
-        <h2>Produktliste</h2>
-        <ProduktListe />
-      </section>
+        <div className={classes.rightColumn}>
+          <h2>Upload PDF</h2>
+          <PdfUpload />
+        </div>
+      </div>
     </div>
   );
 }

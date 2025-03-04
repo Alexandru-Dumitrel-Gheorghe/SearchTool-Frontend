@@ -1,0 +1,52 @@
+/* src/components/Sidebar.module.css */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #182848 0%, #4b6cb7 100%);
+  color: #fff;
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo h2 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 1rem;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex; /* flex pentru icon + text */
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
