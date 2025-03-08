@@ -1,7 +1,8 @@
 // src/components/PdfUpload.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import { toast } from 'react-toastify'; // Importăm toast
+import { toast } from 'react-toastify';
+import { FaUpload, FaFile } from 'react-icons/fa'; // icons
 import classes from './PdfUpload.module.css';
 
 function PdfUpload() {
@@ -10,6 +11,11 @@ function PdfUpload() {
   const [file, setFile] = useState(null);
 
   const baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
+  const handleFileSelect = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile || null);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +33,6 @@ function PdfUpload() {
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
 
-      // Afișăm mesajul de succes cu Toastify
       toast.success(response.data.message || 'File uploaded successfully!');
       setArtikelnummer('');
       setBeschreibung('');
@@ -39,46 +44,56 @@ function PdfUpload() {
   };
 
   return (
-    <div className={classes.uploadContainer}>
-      <form onSubmit={handleSubmit} className={classes.uploadFields}>
-        <div className={classes.fieldGroup}>
-          <label htmlFor="artikelnummer">Product Number:</label>
-          <input
-            className={classes.inputField}
-            id="artikelnummer"
-            type="text"
-            value={artikelnummer}
-            onChange={(e) => setArtikelnummer(e.target.value)}
-            required
-          />
-        </div>
+    <form onSubmit={handleSubmit} className={classes.uploadForm}>
+      <h2 className={classes.formTitle}>Upload Your File</h2>
 
-        <div className={classes.fieldGroup}>
-          <label htmlFor="beschreibung">Description:</label>
-          <input
-            className={classes.inputField}
-            id="beschreibung"
-            type="text"
-            value={beschreibung}
-            onChange={(e) => setBeschreibung(e.target.value)}
-          />
-        </div>
+      <div className={classes.fieldGroup}>
+        <label htmlFor="artikelnummer">Product Number</label>
+        <input
+          className={classes.inputField}
+          id="artikelnummer"
+          type="text"
+          placeholder="Enter product number"
+          value={artikelnummer}
+          onChange={(e) => setArtikelnummer(e.target.value)}
+          required
+        />
+      </div>
 
-        <div className={classes.fieldGroup}>
-          <label htmlFor="pdfDatei">Upload File:</label>
+      <div className={classes.fieldGroup}>
+        <label htmlFor="beschreibung">Description</label>
+        <input
+          className={classes.inputField}
+          id="beschreibung"
+          type="text"
+          placeholder="Enter description"
+          value={beschreibung}
+          onChange={(e) => setBeschreibung(e.target.value)}
+        />
+      </div>
+
+      <div className={classes.fieldGroup}>
+        <label>Upload File</label>
+        <div className={classes.customFileInput}>
+          <label htmlFor="fileInput" className={classes.chooseFileBtn}>
+            <FaFile className={classes.fileIcon} /> Choose File
+          </label>
           <input
-            className={classes.inputField}
-            id="pdfDatei"
+            id="fileInput"
             type="file"
-            onChange={(e) => setFile(e.target.files[0])}
+            className={classes.hiddenInput}
+            onChange={handleFileSelect}
           />
+          <span className={classes.fileName}>
+            {file ? file.name : 'No file selected'}
+          </span>
         </div>
+      </div>
 
-        <button type="submit" className={classes.uploadButton}>
-          Upload
-        </button>
-      </form>
-    </div>
+      <button type="submit" className={classes.uploadButton}>
+        <FaUpload className={classes.uploadIcon} /> Upload
+      </button>
+    </form>
   );
 }
 

@@ -1,7 +1,7 @@
 // src/components/Sidebar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaHome, FaChartBar, FaTrash } from 'react-icons/fa'; // ICONIȚE
+import { FaHome, FaChartBar, FaUpload, FaFileAlt, FaTrash } from 'react-icons/fa';
 import classes from './Sidebar.module.css';
 
 function Sidebar() {
@@ -21,6 +21,18 @@ function Sidebar() {
           <Link to="/stats">
             <FaChartBar className={classes.icon} />
             Statistics
+          </Link>
+        </li>
+        <li>
+          <Link to="/upload">
+            <FaUpload className={classes.icon} />
+            Upload
+          </Link>
+        </li>
+        <li>
+          <Link to="/files">
+            <FaFileAlt className={classes.icon} />
+            Files
           </Link>
         </li>
         <li>

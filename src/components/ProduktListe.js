@@ -26,7 +26,6 @@ function ProduktListe() {
   }, [loadProducts]);
 
   const handleDeleteClick = (artikelnummer) => {
-    // Open modal and store the product's identifier for deletion
     setProductToDelete(artikelnummer);
     setConfirmModalVisible(true);
   };
@@ -50,23 +49,42 @@ function ProduktListe() {
     setProductToDelete(null);
   };
 
+  // For opening the PDF in a new tab
+  const handleOpenPDF = (pdfUrl) => {
+    if (pdfUrl) {
+      window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      toast.info('No file available.');
+    }
+  };
+
   return (
     <div className={classes.listeContainer}>
       <ul>
         {produkte.map((prod) => (
-          <li key={prod._id}>
-            <strong>{prod.artikelnummer}</strong> – {prod.beschreibung}{' '}
-            {prod.pdfPfad && (
-              <a href={prod.pdfPfad} target="_blank" rel="noreferrer">
-                View PDF
-              </a>
-            )}
-            <button
-              className={classes.deleteBtn}
-              onClick={() => handleDeleteClick(prod.artikelnummer)}
-            >
-              Delete
-            </button>
+          <li key={prod._id} className={classes.productItem}>
+            <div className={classes.details}>
+              <span className={classes.artikelnummer}>
+                <strong>{prod.artikelnummer}</strong>
+              </span>
+              <span className={classes.beschreibung}>
+                {prod.beschreibung || 'No description'}
+              </span>
+            </div>
+            <div className={classes.actions}>
+              <button
+                className={classes.openBtn}
+                onClick={() => handleOpenPDF(prod.pdfPfad)}
+              >
+                Open
+              </button>
+              <button
+                className={classes.deleteBtn}
+                onClick={() => handleDeleteClick(prod.artikelnummer)}
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>

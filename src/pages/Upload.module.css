@@ -1,0 +1,13 @@
+/* src/pages/Upload.module.css */
+
+/* A light gradient background for the entire page area */
+.uploadPage {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f2f5 0%, #dde1e7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  

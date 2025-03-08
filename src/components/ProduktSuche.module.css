@@ -1,11 +1,12 @@
 /* src/components/ProduktSuche.module.css */
+
 .sucheContainer {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  /* remove background, border, box-shadow */
+  padding: 0;
   margin-bottom: 0.5rem;
-  border-left: 4px solid #4b6cb7;
+  border-left: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .formRow {
@@ -24,17 +25,17 @@
 .inputField {
   flex: 1;
   min-width: 180px;
-  padding: 0.3rem; /* Mai mic */
+  padding: 0.3rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 0.9rem; /* scădem un pic */
+  font-size: 0.9rem;
 }
 
 .searchButton {
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  padding: 0.3rem 0.6rem; /* Mai mic */
+  padding: 0.3rem 0.6rem;
   background-color: #4b6cb7;
   color: #fff;
   border: none;
@@ -49,7 +50,7 @@
 }
 
 .searchIcon {
-  font-size: 1rem; /* icon mai mic */
+  font-size: 1rem;
 }
 
 .result {

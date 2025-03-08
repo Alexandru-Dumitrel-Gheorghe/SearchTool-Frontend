@@ -1,53 +1,81 @@
 /* src/components/ProduktListe.module.css */
+
+/* Container: no extra background or border so the parent page can style. */
 .listeContainer {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  margin-bottom: 0.5rem;
-  border-left: 4px solid #4b6cb7;
+  margin: 1rem 0;
 }
 
+/* The list as a vertical flex. Each product is a mini-card. */
 .listeContainer ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
-.listeContainer li {
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-  color: #333;
-  line-height: 1.4;
+/* Each product card */
+.productItem {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 0.8rem 1rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Left side: product number & description */
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.artikelnummer {
+  font-size: 1rem;
+  color: #333;
+}
+
+.beschreibung {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Right side: buttons */
+.actions {
+  display: flex;
   gap: 0.5rem;
 }
 
-.listeContainer li strong {
-  margin-right: 0.5rem;
+/* The "Open" button */
+.openBtn {
+  background-color: #4b6cb7;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.listeContainer li a {
-  color: #4b6cb7;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+.openBtn:hover {
+  background-color: #3a539b;
 }
 
-.listeContainer li a:hover {
-  color: #182848;
-}
-
+/* The "Delete" button */
 .deleteBtn {
   background-color: #d9534f;
   color: #fff;
   border: none;
   border-radius: 4px;
-  padding: 0.3rem 0.6rem;
-  cursor: pointer;
+  padding: 0.4rem 0.8rem;
   font-size: 0.8rem;
-  margin-left: auto;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .deleteBtn:hover {

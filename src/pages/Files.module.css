@@ -1,0 +1,40 @@
+/* src/pages/Files.module.css */
+.filesPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f2f5 0%, #dde1e7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.filesContainer {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  border-left: 6px solid #4b6cb7;
+  max-width: 800px;
+  width: 100%;
+}
+
+.filesHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.filesIcon {
+  font-size: 1.5rem;
+  color: #4b6cb7;
+}
+
+.filesTitle {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #4b6cb7;
+  font-weight: 700;
+}

@@ -50,3 +50,43 @@
   margin-right: 0.5rem;
   font-size: 1.2rem;
 }
+/* Example sidebar CSS */
+
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #182848 0%, #4b6cb7 100%);
+  color: #fff;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+
+  /* Sticky positioning */
+  position: sticky;
+  top: 0; 
+  align-self: flex-start; /* Ensures sticky works in a flex container */
+
+  /* If you want it to fill the entire height */
+  height: 100vh;
+  overflow: auto; /* If you have a lot of sidebar items, let it scroll */
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Logo, menu, etc. remain the same */
+.logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo h2 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* rest of your sidebar styling */
